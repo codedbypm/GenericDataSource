@@ -27,11 +27,8 @@ NSObject, UITableViewDataSource {
         self.configurator = configurator
         super.init()
     }
-}
 
-// MARK: - Cells
-
-extension TableViewDataSource {
+    // MARK: - Cells
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -59,11 +56,8 @@ extension TableViewDataSource {
 
         return cell
     }
-}
 
-// MARK: - Header and Footer
-
-extension TableViewDataSource {
+    // MARK: - Header and Footer
 
     func tableView(_ : UITableView, titleForHeaderInSection: Int) -> String? {
         return headerText
@@ -72,11 +66,8 @@ extension TableViewDataSource {
     func tableView(_ : UITableView, titleForFooterInSection: Int) -> String? {
         return footerText
     }
-}
 
-// MARK: - Table editing
-
-extension TableViewDataSource {
+    // MARK: - Table editing
 
     func tableView(_: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return canEditRows
@@ -97,11 +88,8 @@ extension TableViewDataSource {
     func tableView(_: UITableView, moveRowAt from: IndexPath, to: IndexPath) {
         onMoveRow?(from, to)
     }
-}
 
-// MARK: - Table index titles
-
-extension TableViewDataSource {
+    // MARK: - Table index titles
 
     func sectionIndexTitles(for: UITableView) -> [String]? {
         return nil
