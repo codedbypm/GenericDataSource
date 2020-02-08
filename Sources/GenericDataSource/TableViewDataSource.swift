@@ -27,8 +27,11 @@ NSObject, UITableViewDataSource {
         self.configurator = configurator
         super.init()
     }
+}
 
-    // MARK: - Standard
+// MARK: - Standard
+
+extension TableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
