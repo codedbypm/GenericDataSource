@@ -14,6 +14,10 @@ protocol Configurator {
     func configure(_ : Cell, with: Model)
 }
 
-protocol CellConfigurator: Configurator where Cell: UITableViewCell {
+protocol TableCellConfigurator: Configurator where Cell: UITableViewCell {
     
+}
+
+protocol CollectionCellConfigurator: Configurator where Cell: UICollectionViewCell {
+
 }

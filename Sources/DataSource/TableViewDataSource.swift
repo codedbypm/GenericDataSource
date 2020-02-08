@@ -7,13 +7,12 @@
 
 import UIKit
 
-class TableViewDataSource<M, C: CellConfigurator>: NSObject, UITableViewDataSource
-where C.Model == M {
+class TableViewDataSource<C: TableCellConfigurator>: NSObject, UITableViewDataSource {
 
-    private let model: [M]
+    private let model: [C.Model]
     private let configurator: C
 
-    init(model: [M], configurator: C) {
+    init(model: [C.Model], configurator: C) {
         self.model = model
         self.configurator = configurator
         super.init()
