@@ -14,6 +14,6 @@ protocol Configurator {
     func configure(_ : Cell, with: Model)
 }
 
-protocol CellConfigurator {
-    associatedtype Cell where Cell: Reusable
+protocol CellConfigurator: Configurator where Cell: UITableViewCell {
+    
 }

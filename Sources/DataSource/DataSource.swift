@@ -7,7 +7,8 @@
 
 import UIKit
 
-class TableViewDataSource<M, C: CellConfigurator>: NSObject, UITableViewDataSource {
+class TableViewDataSource<M, C: CellConfigurator>: NSObject, UITableViewDataSource
+where C.Model == M {
 
     private let model: [M]
     private let configurator: C
@@ -31,12 +32,17 @@ class TableViewDataSource<M, C: CellConfigurator>: NSObject, UITableViewDataSour
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: C.Cell.reuseIdentifier,
             for: indexPath
-        )
+        ) as? C.Cell else {
+            assertionFailure("Ooops!")
+            return UITableViewCell()
+        }
 
-//        configurator.configure(cell, with: model[indexPath.row])
+        let cellModel = model[indexPath.row]
+        configurator.configure(cell, with: cellModel)
+
         return cell
     }
 }
