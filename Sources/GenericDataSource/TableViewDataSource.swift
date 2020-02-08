@@ -29,7 +29,7 @@ NSObject, UITableViewDataSource {
     }
 }
 
-// MARK: - Standard
+// MARK: - Cells
 
 extension TableViewDataSource {
 
@@ -99,7 +99,7 @@ extension TableViewDataSource {
     }
 }
 
-// MARK: - Table index title
+// MARK: - Table index titles
 
 extension TableViewDataSource {
 
