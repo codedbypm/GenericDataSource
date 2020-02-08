@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewDataSource<C: CollectionCellConfigurator>:
+class CollectionViewDataSource<C: CollectionViewCellConfigurator>:
 NSObject, UICollectionViewDataSource {
 
     private let model: [C.Model]

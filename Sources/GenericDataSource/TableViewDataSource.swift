@@ -7,7 +7,8 @@
 
 import UIKit
 
-class TableViewDataSource<C: TableCellConfigurator>: NSObject, UITableViewDataSource {
+class TableViewDataSource<C: TableViewCellConfigurator>:
+NSObject, UITableViewDataSource {
 
     private let model: [C.Model]
     private let configurator: C
@@ -18,12 +19,11 @@ class TableViewDataSource<C: TableCellConfigurator>: NSObject, UITableViewDataSo
         super.init()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return model.count
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 
     func tableView(
