@@ -9,15 +9,15 @@ import UIKit
 
 protocol Configurator {
     associatedtype Model
-    associatedtype Cell
+    associatedtype View
 
-    func configure(_ : Cell, with: Model)
+    func configure(_ : View, with: Model)
 }
 
-protocol TableCellConfigurator: Configurator where Cell: UITableViewCell {
+protocol TableCellConfigurator: Configurator where View: UITableViewCell {
     
 }
 
-protocol CollectionCellConfigurator: Configurator where Cell: UICollectionViewCell {
+protocol CollectionCellConfigurator: Configurator where View: UICollectionViewCell {
 
 }

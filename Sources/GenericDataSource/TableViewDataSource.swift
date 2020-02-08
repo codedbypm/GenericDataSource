@@ -32,9 +32,9 @@ class TableViewDataSource<C: TableCellConfigurator>: NSObject, UITableViewDataSo
     ) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: C.Cell.reuseIdentifier,
+            withIdentifier: C.View.reuseIdentifier,
             for: indexPath
-        ) as? C.Cell else {
+        ) as? C.View else {
             assertionFailure("Ooops!")
             return UITableViewCell()
         }

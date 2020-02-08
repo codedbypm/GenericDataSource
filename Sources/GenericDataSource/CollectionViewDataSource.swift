@@ -32,9 +32,9 @@ NSObject, UICollectionViewDataSource {
     ) -> UICollectionViewCell {
 
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: C.Cell.reuseIdentifier,
+            withReuseIdentifier: C.View.reuseIdentifier,
             for: indexPath
-        ) as? C.Cell else {
+        ) as? C.View else {
             assertionFailure("Ooops!")
             return UICollectionViewCell()
         }
