@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CollectionViewDataSource<C: CollectionViewCellConfigurator>:
-NSObject, UICollectionViewDataSource {
+class CollectionViewDataSource<C: Configurator>: NSObject, UICollectionViewDataSource
+where C.View == UICollectionViewCell {
 
     private let model: [C.Model]
     private let configurator: C
@@ -31,13 +31,10 @@ NSObject, UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
 
-        guard let cell = collectionView.dequeueReusableCell(
+        let cell: C.View = collectionView.dequeueReusableCell(
             withReuseIdentifier: C.View.reuseIdentifier,
             for: indexPath
-        ) as? C.View else {
-            assertionFailure("Ooops!")
-            return UICollectionViewCell()
-        }
+        )
 
         let cellModel = model[indexPath.row]
         configurator.configure(cell, with: cellModel)

@@ -32,6 +32,6 @@ class DataSource: NSObject, UITableViewDataSource {
     }
 
     func dataSource(at index: Int) -> UITableViewDataSource {
-        return sectionDataSources[index]
+        sectionDataSources[index]
     }
 }

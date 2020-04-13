@@ -13,11 +13,3 @@ protocol Configurator {
 
     func configure(_ : View, with: Model)
 }
-
-protocol TableViewCellConfigurator: Configurator where View: UITableViewCell {
-    
-}
-
-protocol CollectionViewCellConfigurator: Configurator where View: UICollectionViewCell {
-
-}

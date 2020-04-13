@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TableViewDataSource<C: TableViewCellConfigurator>:
-NSObject, UITableViewDataSource {
+class TableViewDataSource<C: Configurator>: NSObject, UITableViewDataSource
+where C.View == UITableViewCell {
 
     var headerText: String?
     var footerText: String?
@@ -43,13 +43,10 @@ NSObject, UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(
+        let cell: C.View = tableView.dequeueReusableCell(
             withIdentifier: C.View.reuseIdentifier,
             for: indexPath
-        ) as? C.View else {
-            assertionFailure("Ooops!")
-            return UITableViewCell()
-        }
+        )
 
         let cellModel = model[indexPath.row]
         configurator.configure(cell, with: cellModel)
