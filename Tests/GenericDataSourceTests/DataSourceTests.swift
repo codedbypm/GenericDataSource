@@ -1,5 +1,5 @@
 import XCTest
-@testable import DataSource
+@testable import GenericDataSource
 
 final class DataSourceTests: XCTestCase {
 
